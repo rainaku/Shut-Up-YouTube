@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,8 +94,15 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
     }
 
     .status-text {
@@ -140,11 +148,11 @@
       border-radius: 50%;
     }
 
-    input:checked + .toggle-slider {
+    input:checked+.toggle-slider {
       background: linear-gradient(135deg, #4CAF50, #45a049);
     }
 
-    input:checked + .toggle-slider:before {
+    input:checked+.toggle-slider:before {
       transform: translateX(24px);
     }
 
@@ -208,6 +216,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="header">
     <div class="header-icon">▶</div>
@@ -241,11 +250,15 @@
     </div>
     <div class="feature-item">
       <div class="feature-icon">✓</div>
-      <span>Fix Permission Denied errors</span>
+      <span>Bypass Content Warnings</span>
     </div>
     <div class="feature-item">
       <div class="feature-icon">✓</div>
-      <span>Auto-retry on playback errors</span>
+      <span>Auto-dismiss Age/Sensitive gates</span>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">✓</div>
+      <span>Patch player/next/verify_age APIs</span>
     </div>
     <div class="feature-item">
       <div class="feature-icon">✓</div>
@@ -264,4 +277,5 @@
 
   <script src="popup.js"></script>
 </body>
+
 </html>
