@@ -282,7 +282,38 @@
   }
 
   // ============================================
-  // 5. INITIALIZE
+  // 5. THUMBNAIL PREVIEW VOLUME CONTROL
+  // Giảm âm lượng video preview ở trang chủ xuống 25%
+  // ============================================
+
+  function initPreviewVolumeControl() {
+    document.addEventListener('play', (e) => {
+      if (e.target && e.target.tagName === 'VIDEO') {
+        const isPreviewPlayer = e.target.closest('ytd-video-preview') ||
+          e.target.closest('ytd-inline-preview-player') ||
+          e.target.closest('#inline-preview-player');
+
+        if (isPreviewPlayer) {
+          e.target.volume = 0.25;
+        }
+      }
+    }, true);
+
+    document.addEventListener('volumechange', (e) => {
+      if (e.target && e.target.tagName === 'VIDEO') {
+        const isPreviewPlayer = e.target.closest('ytd-video-preview') ||
+          e.target.closest('ytd-inline-preview-player') ||
+          e.target.closest('#inline-preview-player');
+
+        if (isPreviewPlayer && e.target.volume > 0.25) {
+          e.target.volume = 0.25;
+        }
+      }
+    }, true);
+  }
+
+  // ============================================
+  // 6. INITIALIZE
   // ============================================
 
   function init() {
@@ -290,6 +321,8 @@
 
     // Start warning dismisser
     startWarningDismisser();
+
+    initPreviewVolumeControl();
 
     // Observe DOM cho warning mới
     if (document.body) {
