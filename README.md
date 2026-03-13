@@ -1,4 +1,4 @@
-# YouTube Storage Access Fixer
+# Shut Up YouTube
 
 A lightweight Chrome extension that bypasses Storage Access API restrictions and boosts YouTube performance - fix "Không xem được nội dung này" errors instantly!
 
